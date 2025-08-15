@@ -1,0 +1,78 @@
+body {
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 20px; /* Dá espaço nas laterais no celular */
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Baloo 2', cursive;
+  font-size: 3rem; /* um pouco menor para caber melhor no celular */
+  color: #ff6eb4;
+  margin-top: 30px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+p {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.4rem; /* menor para telas pequenas */
+  color: #555;
+  line-height: 1.6;
+  max-width: 90%; /* largura adaptável ao celular */
+  margin: 30px auto;
+  text-align: justify;
+}
+
+.botaocss {
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  background-color: #ff6eb4;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+/* Corações caindo */
+.coração {
+  position: absolute;
+  font-size: 25px;
+  color: purple;
+  animation: cair 4s linear forwards; /* dura um pouco mais */
+  user-select: none;
+  pointer-events: none;
+}
+
+@keyframes cair {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg); /* cai até o final da tela */
+    opacity: 0;
+  }
+}
+
+/* MEDIA QUERIES para telas pequenas */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+  .botaocss {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+  .coração {
+    font-size: 20px;
+  }
+}
