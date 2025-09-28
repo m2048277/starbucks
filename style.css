@@ -1,78 +1,133 @@
+/* Corpo e layout geral */
 body {
-  display: flex;
-  background-color: rgb(255, 255, 255);
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: 20px; /* Dá espaço nas laterais no celular */
-  box-sizing: border-box;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
+/* Cabeçalho */
 h1 {
-  text-align: center;
-  font-family: 'Baloo 2', cursive;
-  font-size: 3rem; /* um pouco menor para caber melhor no celular */
-  color: #ff6eb4;
-  margin-top: 30px;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: 'Baloo 2', cursive;
+    font-size: 3rem;
+    color: #ff6eb4;
+    margin-top: 30px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Parágrafo */
 p {
-  font-family: 'Baloo 2', cursive;
-  font-size: 1.4rem; /* menor para telas pequenas */
-  color: #555;
-  line-height: 1.6;
-  max-width: 90%; /* largura adaptável ao celular */
-  margin: 30px auto;
-  text-align: justify;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.4rem;
+    color: #555;
+    line-height: 1.6;
+    max-width: 90%;
+    margin: 30px auto;
+    text-align: justify;
 }
 
+/* Botão */
 .botaocss {
-  padding: 12px 25px;
-  font-size: 1.2rem;
-  background-color: #ff6eb4;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-bottom: 20px;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    background-color: #ff6eb4;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
 }
 
 /* Corações caindo */
 .coração {
-  position: absolute;
-  font-size: 25px;
-  color: purple;
-  animation: cair 4s linear forwards; /* dura um pouco mais */
-  user-select: none;
-  pointer-events: none;
+    position: fixed;        /* fixo na tela inteira */
+    font-size: 25px;
+    color: purple;
+    animation: cair 4s linear forwards;
+    user-select: none;
+    pointer-events: none;
+    z-index: 9999;          /* sempre acima de tudo */
 }
 
 @keyframes cair {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh) rotate(360deg); /* cai até o final da tela */
-    opacity: 0;
-  }
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Container de texto e imagens */
+.container {
+    display: flex;
+    align-items: center;       /* centraliza verticalmente */
+    justify-content: center;   /* centraliza horizontalmente */
+    gap: 50px;                 /* espaço maior entre colunas */
+    flex-wrap: wrap;           /* responsivo em telas pequenas */
+    margin: 30px 0;
+}
+
+/* Lados com imagens */
+.lado {
+    display: flex;
+    flex-direction: column;    /* empilha imagens verticalmente */
+    gap: 20px;                 /* espaço maior entre imagens */
+}
+
+.lado img {
+    width: 600px;              /* aumenta tamanho das imagens */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* sombra leve */
+    transition: transform 0.3s; /* efeito hover */
+}
+
+.lado img:hover {
+    transform: scale(1.05);    /* leve zoom ao passar o mouse */
+}
+
+/* Texto central */
+.container .texto {
+    max-width: 400px;
+    text-align: center;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.4rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
 }
 
 /* MEDIA QUERIES para telas pequenas */
 @media (max-width: 600px) {
-  h1 {
-    font-size: 2.2rem;
-  }
-  p {
-    font-size: 1.2rem;
-  }
-  .botaocss {
-    font-size: 1rem;
-    padding: 10px 20px;
-  }
-  .coração {
-    font-size: 20px;
-  }
+    h1 {
+        font-size: 2.2rem;
+    }
+    p {
+        font-size: 1.2rem;
+    }
+    .botaocss {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+    .coração {
+        font-size: 20px;
+    }
+    .lado img {
+        width: 120px;           /* menor no celular */
+    }
+    .container {
+        gap: 20px;               /* menos espaço entre colunas */
+    }
+    .container .texto {
+        max-width: 90%;
+        font-size: 1.2rem;
+    }
 }
