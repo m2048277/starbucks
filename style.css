@@ -121,7 +121,7 @@ p {
         font-size: 20px;
     }
     .lado img {
-        width: 120px;           /* menor no celular */
+        width: 200px;           /* menor no celular */
     }
     .container {
         gap: 20px;               /* menos espaço entre colunas */
